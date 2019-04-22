@@ -1,0 +1,11 @@
+{
+  "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../../dist/ngx-route-socket",
+  "whitelistedNonPeerDependencies": ["ngx-socket-io"],
+  "lib": {
+    "entryFile": "src/public-api.ts",
+    "umdModuleIds": {
+      "ngx-socket-io": "ng.socketio"
+    }
+  }
+}
