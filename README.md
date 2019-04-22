@@ -67,9 +67,7 @@ import { CheckinSocket } from './checkin.socket';
 import { map } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-checkin',
-  templateUrl: './checkin.component.html',
-  styleUrls: ['./checkin.component.css']
+  selector: 'app-checkin'
 })
 export class CheckinComponent implements OnInit {
 
