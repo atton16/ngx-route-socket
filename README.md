@@ -12,6 +12,15 @@ npm install ngx-route-socket
 
 ## How to use
 
+### Polyfills
+
+`polyfills.ts`
+
+```ts
+/** socket.io-parser */
+(window as any).global = window;
+```
+
 ### Import and extend RouteSocket
 
 `checkin.socket.ts`
