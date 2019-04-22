@@ -43,6 +43,7 @@ export class CheckinSocket extends RouteSocket {
 ```ts
 ...
 import { CheckinSocket, CheckinSocketConfigProvider } from './checkin.socket';
+import { CheckinComponent } from './checkin.component';
 
 @NgModule({
   ...
@@ -63,9 +64,10 @@ import { CheckinSocket, CheckinSocketConfigProvider } from './checkin.socket';
 ```ts
 import { Component, OnInit } from '@angular/core';
 import { CheckinSocket } from './checkin.socket';
+import { map } from 'rxjs/operators';
 
 @Component({
-  selector: 'checkin',
+  selector: 'app-checkin',
   templateUrl: './checkin.component.html',
   styleUrls: ['./checkin.component.css']
 })
@@ -74,12 +76,13 @@ export class CheckinComponent implements OnInit {
   constructor(private checkinSocket: CheckinSocket) { }
 
   ngOnInit() {
-    this.checkinSocket.emit('message', msg);
+    this.checkinSocket.emit('message', 'Hello World!');
     this.checkinSocket
-      .fromEvent('message')
-      .map( data => data.msg );
+      .fromEvent<any>('message')
+      .pipe(
+        map(data => data.msg)
+      ).subscribe(msg => console.log(msg));
   }
-
 }
 ```
 
