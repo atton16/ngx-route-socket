@@ -67,7 +67,8 @@ import { CheckinSocket } from './checkin.socket';
 import { map } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-checkin'
+  selector: 'app-checkin',
+  template: '<h3>Checkin Page</h3>'
 })
 export class CheckinComponent implements OnInit {
 
@@ -76,7 +77,7 @@ export class CheckinComponent implements OnInit {
   ngOnInit() {
     this.checkinSocket.emit('message', 'Hello World!');
     this.checkinSocket
-      .fromEvent<any>('message')
+      .fromEvent<{msg: string}>('message')
       .pipe(
         map(data => data.msg)
       ).subscribe(msg => console.log(msg));
