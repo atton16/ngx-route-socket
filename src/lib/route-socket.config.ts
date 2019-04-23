@@ -1,12 +1,12 @@
 export class RouteSocketConfig {
   url: string;
-  routerPath: string;
+  routerPath: string | RegExp | string[];
   options: any = {};
   debug = false;
 
   constructor(initializer: {
     url: string,
-    routerPath: string,
+    routerPath: string | RegExp | string[],
     options?: any,
     debug?: boolean,
   }) {
